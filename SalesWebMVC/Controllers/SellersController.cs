@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using SalesWebMVC.Models;
+using SalesWebMVC.Data;
 using SalesWebMVC.Services;
 
 namespace SalesWebMVC.Controllers
@@ -31,6 +32,7 @@ namespace SalesWebMVC.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Create(Seller seller)
         {
+            seller.Department = _context.Department.Firts();
             _sellerService.Insert(seller);
             return RedirectToAction(nameof(Index));
         }
