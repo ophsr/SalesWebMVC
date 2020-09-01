@@ -21,5 +21,6 @@ namespace SalesWebMVC.Services
         {
             return await _context.Department.OrderBy(obj => obj.Name).ToListAsync();
         }
+
     }
 }
